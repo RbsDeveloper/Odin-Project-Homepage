@@ -1,6 +1,7 @@
 import { createHeader } from "./header.js";
 import { createMain } from "./main.js";
-document.body.append(createHeader(), createMain());
+import { createFooter } from "./footer.js"
+document.body.append(createHeader(), createMain(), createFooter());
 
 
 
