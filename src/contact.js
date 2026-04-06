@@ -14,7 +14,7 @@ function createContactLinks (items) {
         const span = createCompleteElement("span", ["contactIcon"]);
         const i = createCompleteElement("i", element.icon);
         const innerWrapper = createCompleteElement("div");
-        const itemName = createCompleteElement("h5", [], element.label);
+        const itemName = createCompleteElement("h4", [], element.label);
         const link = createCompleteElement("a", [], element.content, {href:element.href});
         span.append(i);
         innerWrapper.append(itemName, link);
@@ -26,7 +26,7 @@ function createContactLinks (items) {
 
 function createInfoSide() {
     const info = createCompleteElement("address", ["contactInfo"]);
-    const infoTitle = createCompleteElement("h4", [], "Let's talk about your project");
+    const infoTitle = createCompleteElement("h3", [], "Let's talk about your project");
     const contactDescription = createCompleteElement("p", [], "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!");
     const linksUl = createContactLinks(contactLinks);
     const tipElement = createCompleteElement("aside", ["contactTip"]);
@@ -43,17 +43,17 @@ function createFormSide() {
 
     const nameGroup = createCompleteElement("div", ["formGroup"]);
     const nameLabel = createCompleteElement("label", [], "Name", {for:"name"});
-    const nameInput = createCompleteElement("input", [], "", {type:"text", id:"name", name: "name"});
+    const nameInput = createCompleteElement("input", [], "", {type:"text", id:"name", name: "name", placeholder:"John"});
     nameGroup.append(nameLabel, nameInput);
 
     const emailGroup = createCompleteElement("div", ["formGroup"]);
     const emailLabel = createCompleteElement("label", [], "Email", {for:"email"});
-    const emailInput = createCompleteElement("input", [], "", {type:"email", id:"email", name: "email", required:"true"})
+    const emailInput = createCompleteElement("input", [], "", {type:"email", id:"email", name: "email", required:"true", placeholder:"yourEmail@example.com"})
     emailGroup.append(emailLabel, emailInput);
 
     const textZoneGroup = createCompleteElement("div", ["formGroup"]);
     const textZoneLabel = createCompleteElement("label", [], "Message", {for:"message"});
-    const textZoneInput = createCompleteElement("input", [], "", {type:"textarea", id:"message", name: "message", rows:"6", required:"true"});
+    const textZoneInput = createCompleteElement("textarea", [], "", {id:"message", name: "message", rows:"6", col:"33", required:"true", placeholder:"Tell me about your project..."});
     textZoneGroup.append(textZoneLabel, textZoneInput);
 
     const button = createCompleteElement("button", [], "", {type:"submit"});
@@ -71,7 +71,7 @@ export function createContactSection () {
     const section = createCompleteElement("section", ["contactSection"], "", {id: "contact"});
 
     const sectionHeader = createCompleteElement("header", ["sectionHeader"]);
-    const sectionTitle = createCompleteElement("h3", ["title"], "Get In Touch");
+    const sectionTitle = createCompleteElement("h2", ["title"], "Get In Touch");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "Have a project in mind or just want to chat? Feel free to reach out!")
     sectionHeader.append(sectionTitle, sectionDescription);
 

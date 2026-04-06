@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
     --font-main: 'Your Font', sans-serif;
 
     /* Spacing */
-    --container-padding: 1.5rem;
+    --container-padding: 1rem;
     --section-padding: 5rem;
 
     /* Border radius */
@@ -217,12 +217,12 @@ body {
   gap: 2rem;
 }
 
-.socialList li {
+.socialList li, .contactIcon {
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
 }
 
-.socialLink {
+.socialLink, .contactIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -342,3 +342,143 @@ body {
   flex-shrink: 0;
 }
 
+.contactSection {
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--section-padding);
+  padding-inline: var(--container-padding);
+}
+
+.sectionHeader {
+  text-align: center;
+}
+
+.sectionHeader .sectionDescription {
+  color: var(--text-muted);
+}
+
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactsList {
+  margin-block: 2rem;
+}
+
+.contactInfo h4 {
+  font-weight: 600;
+}
+
+.contactInfo p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.contactItem {
+  display: flex;
+  gap: 1rem;
+}
+
+.contactItem a{
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.contactTip {
+  background: linear-gradient(
+    rgba(59, 130, 246, 0.1),
+    rgba(124, 58, 237, 0.1)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--container-padding);
+  margin-block: 2rem;
+}
+
+.contactTip p {
+  font-size: .75rem;
+  font-style: normal;
+}
+
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block: 1.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  font-size: 0.875;
+}
+
+.formGroup input, .formGroup textarea {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  padding: .75rem 1rem;
+  font-size: .875rem;
+  outline: none;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.formGroup textarea {
+    resize: none;
+    line-height: 1.6;
+}
+
+.formContainer button {
+  width: 100%;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerWrapper {
+  padding: var(--container-padding);
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.leftSideFooter i {
+  color: var(--text-primary);
+}
+
+.leftSideFooter i, .rightSideFooter i {
+  margin-inline: .5rem;
+}
+
+.rightSideFooter i {
+  color: red;
+}

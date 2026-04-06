@@ -93,7 +93,7 @@ function createProjectCard(projects) {
 
 export function createProjectsSection() {
     const projectsSection = createCompleteElement("section", ["projectSection"]);
-    const sectionTitle = createCompleteElement("h3", ["sectionTitle"], "Featured Projects");
+    const sectionTitle = createCompleteElement("h2", ["sectionTitle"], "Featured Projects");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "A collection of my recent work showcasing various technologies and problem-solving approaches.");
     
     projectsSection.append(sectionTitle, sectionDescription, createProjectCard(projects));
