@@ -69,7 +69,7 @@ function createFormSide() {
 
 export function createContactSection () {
     const section = createCompleteElement("section", ["contactSection"], "", {id: "contact"});
-
+    const innerWrapper =  createCompleteElement("div", ["container"]);
     const sectionHeader = createCompleteElement("header", ["sectionHeader"]);
     const sectionTitle = createCompleteElement("h2", ["title"], "Get In Touch");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "Have a project in mind or just want to chat? Feel free to reach out!")
@@ -78,6 +78,7 @@ export function createContactSection () {
 
     const contactWrapper = createCompleteElement("div", ["contactWrapper"]);
     contactWrapper.append(createInfoSide(), createFormSide());
-    section.append(sectionHeader, contactWrapper);
+    innerWrapper.append(sectionHeader, contactWrapper);
+    section.append(innerWrapper)
     return section
 }

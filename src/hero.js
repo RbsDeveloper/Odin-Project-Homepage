@@ -2,7 +2,7 @@ import { createCompleteElement } from "./utils.js";
 
 const links = [
     {label: "Github", icon: ["fa-brands","fa-github"], href: "https://github.com/RbsDeveloper"},
-    {label: "LinkedIn", icon: ["fa-brands", "fa-linkedin-in"], href: "www.linkedin.com/in/raul-bazavan"},
+    {label: "LinkedIn", icon: ["fa-brands", "fa-linkedin-in"], href: "https://www.linkedin.com/in/raul-bazavan"},
     {label: "Email", icon: ["fa-solid", "fa-envelope"], href: "mailto:rbsDeveloper@gmail.com"}
 ]
 
@@ -14,7 +14,8 @@ function createSocialLinks(socialLinks) {
         const a = createCompleteElement("a", ["socialLink"], "", {
             href, 
             "aria-label": label,
-            rel: "noopener noreferrer"
+            rel: "noopener noreferrer",
+            target: "blank"
         })
         const i = createCompleteElement("i", icon);
 
@@ -35,7 +36,7 @@ export function createHero() {
     const avatarImg = createCompleteElement("img", ["avatarImg"], "", {alt:"Raul - Front End Developer", src: "/images/raul.jpg"})
     avatar.append(avatarImg)
     
-    const greetHeading = createCompleteElement("h1", ["greetMsg"], "Hi, i'm ");
+    const greetHeading = createCompleteElement("h1", ["greetMsg"], "Hi, I'm ");
     greetHeading.append(createCompleteElement("span", ["nameElement"], "Raul"));
 
     const tagline = createCompleteElement("p", ["tagline"], "Front end Developer | UI/UX Enthusiast | Problem Solver");

@@ -3,7 +3,7 @@ import { createCompleteElement } from "./utils.js";
 export function createHeader() {
     const headerWrapper = createCompleteElement('header', ["header"], "", {});
 
-    const navElement = createCompleteElement("nav", ["navbar"]);
+    const navElement = createCompleteElement("nav", ["navbar", "container"]);
     const logo = createCompleteElement("div", ["logoContainer"], "</>RbsDeveloper");
     const navUl = createCompleteElement("ul", ["menu"], "", {id: "navMenu"});
     const firstLi = createCompleteElement("li")
@@ -16,7 +16,7 @@ export function createHeader() {
 
     const toggleBtnsContainer = createCompleteElement("div", ["togglers"]);
     const themeBtn = createCompleteElement("button", ["themeBtn"], "", {"aria-label": "Toggle dark Mode"})
-    themeBtn.append(createCompleteElement("i", ["fa-solid", "fa-moon"]));
+    themeBtn.append(createCompleteElement("i", ["fa-regular", "fa-moon"]));
     const menuBtn = createCompleteElement("button", ["hamburgerBtn"], "", {"aria-label": "Toggle Menu", id:"menuBtn"})
     menuBtn.append(createCompleteElement("i", ["fa-solid", "fa-bars"]));
     toggleBtnsContainer.append(themeBtn, menuBtn);

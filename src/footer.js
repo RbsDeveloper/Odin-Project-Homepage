@@ -3,8 +3,8 @@ import { createCompleteElement } from "./utils.js";
 const year = new Date().getFullYear()
 
 export function createFooter() {
-    const footer = createCompleteElement("footer");
-    const footerWrapper = createCompleteElement("div", ["footerWrapper"]);
+    const footer = createCompleteElement("footer",);
+    const footerWrapper = createCompleteElement("div", ["footerWrapper", "container"]);
     
     const footerLeftSide = createCompleteElement("div", ["leftSideFooter"]);
     const icon = createCompleteElement("i", ["fa-solid", "fa-code"]);

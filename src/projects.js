@@ -58,7 +58,7 @@ const projects = [
 ]
 
 function createProjectCard(projects) {
-    const projectsContainer = createCompleteElement("div", ["container"], "", {id:"projectsContainer"});
+    const projectsContainer = createCompleteElement("div", ["projectsContainer"], "",);
     
     projects.forEach((project, idx) => {
         const card = createCompleteElement("article", ["projectCard"], "", {id:idx+1});
@@ -93,11 +93,12 @@ function createProjectCard(projects) {
 
 export function createProjectsSection() {
     const projectsSection = createCompleteElement("section", ["projectSection"]);
+    const innerWrapper =  createCompleteElement("div", ["container"]);
     const sectionTitle = createCompleteElement("h2", ["sectionTitle"], "Featured Projects");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "A collection of my recent work showcasing various technologies and problem-solving approaches.");
     
-    projectsSection.append(sectionTitle, sectionDescription, createProjectCard(projects));
-
+    innerWrapper.append(sectionTitle, sectionDescription, createProjectCard(projects));
+    projectsSection.append(innerWrapper)
     return projectsSection;
 }
 
