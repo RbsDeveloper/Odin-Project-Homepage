@@ -7,15 +7,15 @@ export function createHeader() {
     const logo = createCompleteElement("div", ["logoContainer"], "</>RbsDeveloper");
     const navUl = createCompleteElement("ul", ["menu"], "", {id: "navMenu"});
     const firstLi = createCompleteElement("li")
-    firstLi.append(createCompleteElement("a", [], "home", {href: "#"}))
+    firstLi.append(createCompleteElement("a", [], "Home", {href: "#home"}))
     const secondLi = createCompleteElement("li")
-    secondLi.append(createCompleteElement("a", [], "projects", {href: "#"}))
+    secondLi.append(createCompleteElement("a", [], "Projects", {href: "#projectsSection"}))
     const thirdLi = createCompleteElement("li")
-    thirdLi.append(createCompleteElement("a", [], "contact", {href: "#"}));
+    thirdLi.append(createCompleteElement("a", [], "Contact", {href: "#contact"}));
     navUl.append(firstLi, secondLi, thirdLi);
 
     const toggleBtnsContainer = createCompleteElement("div", ["togglers"]);
-    const themeBtn = createCompleteElement("button", ["themeBtn"], "", {"aria-label": "Toggle dark Mode"})
+    const themeBtn = createCompleteElement("button", ["themeBtn"], "", {"aria-label": "Toggle dark Mode", id:"themeToggler"})
     themeBtn.append(createCompleteElement("i", ["fa-regular", "fa-moon"]));
     const menuBtn = createCompleteElement("button", ["hamburgerBtn"], "", {"aria-label": "Toggle Menu", id:"menuBtn"})
     menuBtn.append(createCompleteElement("i", ["fa-solid", "fa-bars"]));

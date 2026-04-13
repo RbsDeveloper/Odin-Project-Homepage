@@ -27,7 +27,7 @@ function createContactLinks (items) {
 function createInfoSide() {
     const info = createCompleteElement("address", ["contactInfo"]);
     const infoTitle = createCompleteElement("h3", [], "Let's talk about your project");
-    const contactDescription = createCompleteElement("p", [], "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!");
+    const contactDescription = createCompleteElement("p", ["contactDescription"], "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!");
     const linksUl = createContactLinks(contactLinks);
     const tipElement = createCompleteElement("aside", ["contactTip"]);
     const tip = createCompleteElement("p", [], "💡Quick Tip: Include details about your project timeline, budget, and specific requirements to help me understand your needs better.")

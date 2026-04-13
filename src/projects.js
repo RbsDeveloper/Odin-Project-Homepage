@@ -62,7 +62,7 @@ function createProjectCard(projects) {
     
     projects.forEach((project, idx) => {
         const card = createCompleteElement("article", ["projectCard"], "", {id:idx+1});
-        
+        card.style.setProperty("--card-gradient", project.gradient)
         const header = createCompleteElement("div", ["cardHeader"], "");
         header.style.background = project.gradient;
         const projectPreview = createCompleteElement("img", ["projectImg"], "", {src:project.image});
@@ -77,9 +77,9 @@ function createProjectCard(projects) {
             tagList.append(li)
         });
         const linkContainer = createCompleteElement("div", ["cardLinkBtns"]);
-        const liveBtn = createCompleteElement("a", ["btn", "liveBtn"], "Live Demo", {href:project.liveUrl});
+        const liveBtn = createCompleteElement("a", ["btn", "liveBtn"], "Live Demo", {href:project.liveUrl, target:"blank"});
         liveBtn.prepend(createCompleteElement("i", ["fa-solid", "fa-arrow-up-right-from-square"]))
-        const codeBtn = createCompleteElement("a", ["btn", "codeBtn"], "Code", {href:project.repoUrl});
+        const codeBtn = createCompleteElement("a", ["btn", "codeBtn"], "Code", {href:project.repoUrl, target: "blank"});
         codeBtn.prepend(createCompleteElement("i", ["fa-solid", "fa-file-code"]));
         linkContainer.append(liveBtn, codeBtn);
 
@@ -92,7 +92,7 @@ function createProjectCard(projects) {
 }
 
 export function createProjectsSection() {
-    const projectsSection = createCompleteElement("section", ["projectSection"]);
+    const projectsSection = createCompleteElement("section", ["projectSection"], "", {id:"projectsSection"});
     const innerWrapper =  createCompleteElement("div", ["container"]);
     const sectionTitle = createCompleteElement("h2", ["sectionTitle"], "Featured Projects");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "A collection of my recent work showcasing various technologies and problem-solving approaches.");
