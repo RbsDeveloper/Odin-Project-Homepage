@@ -11,17 +11,19 @@ themeBtn.addEventListener("click", ()=> {
     icon.classList.add("spinning");
 
     icon.addEventListener("animationend", ()=> {
-        icon.classList.remove("spinning")
-    })
+        icon.classList.remove("spinning");
+        icon.classList.toggle("fa-moon");
+        icon.classList.toggle("fa-sun");
+        document.documentElement.classList.toggle("dark");
+    }, {once: true})
 
-    document.documentElement.classList.toggle("dark");
-    
-    icon.classList.toggle("fa-moon");
-    icon.classList.toggle("fa-sun");
     
 })
 
 //toggle menu
+
+const menuBtn = document.querySelector("#menuBtn");
+const menu = document.querySelector("#navMenu");
 
 function toggleMenu () {
     const icon = menuBtn.querySelector("i");
@@ -32,23 +34,21 @@ function toggleMenu () {
 
     icon.addEventListener("animationend", ()=> {
         icon.classList.remove("spinningIn", "spinningOut");
-    }, {once: true})
-
-    icon.classList.toggle("fa-bars");
-    icon.classList.toggle("fa-x")
-
-    menu.classList.toggle("open");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-x");
+        menu.classList.toggle("open");
+    }, {once: true})  
 }
-
-const menuBtn = document.querySelector("#menuBtn");
-const menu = document.querySelector("#navMenu");
 
 menuBtn.addEventListener("click", toggleMenu)
 
 const navLinks = document.querySelectorAll("#navMenu a");
 navLinks.forEach(link => {
-    link.addEventListener("click", toggleMenu)
-})
+    link.addEventListener("click", () => {
+        const isVisible = getComputedStyle(menuBtn).display !== "none";
+        if(isVisible) toggleMenu();
+    });
+});
 
 document.addEventListener("click", (e)=> {
     if(menu.classList.contains("open") &&
@@ -57,7 +57,6 @@ document.addEventListener("click", (e)=> {
             toggleMenu()
         }
 })
-
 
 //event for the scroll btn in the hero section
 const scrollBtn = document.querySelector("#scrollTrigger");

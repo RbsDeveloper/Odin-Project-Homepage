@@ -234,7 +234,9 @@ a {
   border-radius: 50%;
   overflow: hidden;
   margin-block: 1rem;
-  animation: float 2.5s ease-in-out infinite;
+  animation: float 2.5s ease-in-out infinite,
+  fadeInDown 0.6s ease forwards;
+  opacity: 0;
 }
 
 .heroAvatar .avatarImg {
@@ -246,21 +248,34 @@ a {
 
 .greetMsg {
   color: var(--text-primary);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.2s forwards;
 }
 
 .nameElement {
   background-image: linear-gradient(to right,var(--color-primary), var(--color-secondary));
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
 
 .tagline, .personalDescription, .socialList {
+  opacity: 0;
   margin-block: 1.5rem;
+}
+
+.tagline {
+  animation: fadeInUp 0.6s ease 0.4s forwards;
+}
+
+.personalDescription {
+  animation: fadeInUp 0.6s ease 0.6s forwards;
 }
 
 .socialList {
   display: flex;
   gap: 2rem;
+  animation: fadeInUp 0.6s ease 0.8s forwards;
 }
 
 .socialList li, .contactIcon {
@@ -290,6 +305,8 @@ a {
   border: none;
   background-color: transparent;
   color: var(--text-muted);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 1s forwards;
 }
 
 .scrollBtn i.fa-chevron-down {
@@ -802,5 +819,15 @@ footer {
   0%, 100% { transform: rotate(0deg); }
   33% { transform: rotate(5deg); }
   66% { transform: rotate(-5deg); }
+}
+
+@keyframes fadeInUp{
+  from{opacity: 0; transform: translateY(20px);}
+  to{opacity: 1; transform: translateY(0px);}
+}
+
+@keyframes fadeInDown{
+  from{opacity: 0; transform: translateY(-20px);}
+  to{opacity: 1; transform: translateY(0px);}
 }
 
