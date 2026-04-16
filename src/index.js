@@ -1,6 +1,7 @@
 import { createHeader } from "./header.js";
 import { createMain } from "./main.js";
-import { createFooter } from "./footer.js"
+import { createFooter } from "./footer.js";
+import { initFormValidation } from "./formValidation.js";
 document.body.append(createHeader(), createMain(), createFooter());
 
 
@@ -63,3 +64,5 @@ const scrollBtn = document.querySelector("#scrollTrigger");
 scrollBtn.addEventListener("click", () => {
     document.querySelector("#projectsSection").scrollIntoView({behavior: "smooth"})
 })
+
+initFormValidation()

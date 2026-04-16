@@ -37,34 +37,66 @@ function createInfoSide() {
     return info;
 }
 
-function createFormSide() {
-    const formWrapper = createCompleteElement("div", ["formContainer"])
-    const formEl = createCompleteElement("form");
+const formFields = [
+    {
+        label: "Name",
+        tag: "input",
+        attrs: { type: "text", id: "name", name: "name", placeholder: "John", autocomplete:"name"},
+        errorId: "nameError",
+        iconId: "nameIcon"
+    },
+    {
+        label: "Email",
+        tag: "input",
+        attrs: { type: "email", id: "email", name: "email", placeholder: "yourEmail@example.com", required: "true", autocomplete:"email" },
+        errorId: "emailError",
+        iconId: "emailIcon"
+    },
+    {
+        label: "Message",
+        tag: "textarea",
+        attrs: { id: "text", name: "text", rows: "6", placeholder: "Tell me about your project...", required: "true", autocomplete:"text" },
+        errorId: "textError",
+        iconId: "textIcon"
+    },
+]
 
-    const nameGroup = createCompleteElement("div", ["formGroup"]);
-    const nameLabel = createCompleteElement("label", [], "Name", {for:"name"});
-    const nameInput = createCompleteElement("input", [], "", {type:"text", id:"name", name: "name", placeholder:"John"});
-    nameGroup.append(nameLabel, nameInput);
+function createFormSide () {
+    const formWrapper = createCompleteElement("div", ["formContainer"]);
+    const formEl = createCompleteElement("form", [], "", {action: "https://formsubmit.co/developer.rbs@gmail.com",method: "POST"});
 
-    const emailGroup = createCompleteElement("div", ["formGroup"]);
-    const emailLabel = createCompleteElement("label", [], "Email", {for:"email"});
-    const emailInput = createCompleteElement("input", [], "", {type:"email", id:"email", name: "email", required:"true", placeholder:"yourEmail@example.com"})
-    emailGroup.append(emailLabel, emailInput);
+    formFields.forEach(field => {
+        // group
+        const group = createCompleteElement("div", ["formGroup"]);
 
-    const textZoneGroup = createCompleteElement("div", ["formGroup"]);
-    const textZoneLabel = createCompleteElement("label", [], "Message", {for:"message"});
-    const textZoneInput = createCompleteElement("textarea", [], "", {id:"message", name: "message", rows:"6", col:"33", required:"true", placeholder:"Tell me about your project..."});
-    textZoneGroup.append(textZoneLabel, textZoneInput);
+        // label wrapper
+        const labelWrapper = createCompleteElement("div", ["labelWrapper"]);
+        const label = createCompleteElement("label", [], field.label, { for: field.attrs.id });
+        const errorMsg = createCompleteElement("span", ["errorMsg"], "", { id: field.errorId });
+        labelWrapper.append(label, errorMsg);
 
-    const button = createCompleteElement("button", [], "", {type:"submit"});
-    const submitIcon = createCompleteElement("i", ["fa-solid", "fa-paper-plane"]);
-    const submitBtnText = createCompleteElement("span", [], "Send Message");
-    button.append(submitIcon, submitBtnText);
+        // input wrapper
+        const inputWrapper = createCompleteElement("div", ["inputWrapper"]);
+        const input = createCompleteElement(field.tag, [], "", field.attrs);
+        const iconWrapper = createCompleteElement("span", ["iconWrapper"], "", { id: field.iconId });
+        const icon = createCompleteElement("i", ["fa-solid"]);
+        iconWrapper.append(icon)
+        inputWrapper.append(input, iconWrapper);
 
-    formEl.append(nameGroup, emailGroup, textZoneGroup, button);
+        group.append(labelWrapper, inputWrapper);
+        formEl.append(group);
+    });
+
+    // submit button
+    const button = createCompleteElement("button", [], "", { type: "submit", value:"submit" });
+    button.append(
+        createCompleteElement("i", ["fa-solid", "fa-paper-plane"]),
+        createCompleteElement("span", [], "Send Message")
+    );
+    formEl.append(button);
+
     formWrapper.append(formEl);
-
-    return formWrapper
+    return formWrapper;
 }
 
 export function createContactSection () {
