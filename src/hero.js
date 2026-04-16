@@ -33,7 +33,7 @@ export function createHero() {
     const heroWrapper = createCompleteElement("div", ["container"]);
 
     const avatar = createCompleteElement("div", ["heroAvatar"], "", {id:"avatar"});
-    const avatarImg = createCompleteElement("img", ["avatarImg"], "", {alt:"Raul - Front End Developer", src: "/images/raul.jpg"})
+    const avatarImg = createCompleteElement("img", ["avatarImg"], "", {alt:"Raul - Front End Developer", src: "./images/raul.jpg"})
     avatar.append(avatarImg)
     
     const greetHeading = createCompleteElement("h1", ["greetMsg"], "Hi, I'm ");

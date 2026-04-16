@@ -4,7 +4,7 @@ const projects = [
     {
         title:"Battleship",
         description:"A fully playable browser-based Battleship game built with a focus on Test Driven Development using Jest. Features an AI opponent, drag-and-drop ship placement, and modular game logic separated from the UI.",
-        image:"/images/battleship.png",
+        image:"./images/battleship.png",
         tags:["Javascript", "JEST", "Webpack", "TDD"],
         liveUrl:"https://rbsdeveloper.github.io/Odin-Project-Battleship/",
         repoUrl:"https://github.com/RbsDeveloper/Odin-Project-Battleship",
@@ -13,7 +13,7 @@ const projects = [
     {
         title:"Weather App",
         description:"A dynamic weather application powered by the Visual Crossing API. Search any city and get real-time conditions, daily and weekly forecasts, UV index, humidity, wind and more.",
-        image:"/images/weatherapp.png",
+        image:"./images/weatherapp.png",
         tags:["REST APIs", "Webpack", "Javascript", "CSS"],
         liveUrl:"https://rbsdeveloper.github.io/Odin-Project-Weather-app/",
         repoUrl:"https://github.com/RbsDeveloper/Odin-Project-Weather-app",
@@ -22,7 +22,7 @@ const projects = [
     {
         title:"ToDoodle — Task Management App",
         description:"A full-featured task manager with project organization, priority levels, and smart filtering for today's, completed, and overdue tasks.",
-        image:"/images/toDoodle.png",
+        image:"./images/toDoodle.png",
         tags:["Local Storage", "Javascript", "CSS", "Webpack"],
         liveUrl:"https://rbsdeveloper.github.io/toDoList-OdinProject/",
         repoUrl:"https://github.com/RbsDeveloper/toDoList-OdinProject",
@@ -31,7 +31,7 @@ const projects = [
     {
         title:"Calculator",
         description:"A fully functional calculator built with vanilla JavaScript, HTML and CSS. Features arithmetic operations, calculation history, keyboard input support, and three different color themes.",
-        image:"/images/calculator.png",
+        image:"./images/calculator.png",
         tags:["Javascrip", "CSS"],
         liveUrl:"https://rbsdeveloper.github.io/Calculator-Odin-Project/",
         repoUrl:"https://github.com/RbsDeveloper/Calculator-Odin-Project",
@@ -40,7 +40,7 @@ const projects = [
     {
         title:"Etch a Sketch",
         description:"A fun browser-based Etch-a-Sketch project built with HTML, CSS, and JavaScript. Part of The Odin Project curriculum.",
-        image:"/images/etchasketch.png",
+        image:"./images/etchasketch.png",
         tags:["Javascript", "CSS"],
         liveUrl:"https://rbsdeveloper.github.io/Etch-a-Sketch-Odin-Project/",
         repoUrl:"https://github.com/RbsDeveloper/Etch-a-Sketch-Odin-Project",
@@ -49,7 +49,7 @@ const projects = [
     {
         title:"Tic Tac Toe",
         description:"A simple yet interactive Tic-Tac-Toe game built using HTML, CSS, and JavaScript. This project features a modern UI, smooth game mechanics, and a dynamic message display for player turns and results.",
-        image:"/images/tictactoe.png",
+        image:"./images/tictactoe.png",
         tags:["javascript", "CSS"],
         liveUrl:"https://rbsdeveloper.github.io/TicTacToe-OdinProject/",
         repoUrl:"https://github.com/RbsDeveloper/TicTacToe-OdinProject",
