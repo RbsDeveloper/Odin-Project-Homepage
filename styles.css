@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 :root{
       /* Backgrounds */
+    --bg-primary-header: rgba(255, 255, 255, 0.6);
     --bg-primary: #ffffff;
     --bg-secondary: #f4f4f5;      /* cards, buttons bg */
     --bg-accent: #e4e4e7;         /* hover states */
@@ -93,6 +94,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root.dark {
+    --bg-primary-header: rgba(9, 9, 11, 0.6);
     --bg-primary: #09090b;
     --bg-secondary: #18181b;
     --bg-accent: #27272a;
@@ -107,6 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 html {
+  background-color: var(--bg-primary);
   scroll-behavior: smooth;
   color-scheme: dark light;
 }
@@ -149,8 +152,10 @@ a {
   top: 0;
   z-index: 1000;
   border-bottom: 2px solid var(--bg-secondary);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary-header);
   height: var(--header-height);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,7 +176,7 @@ a {
 }
 
 #navMenu {
-  background-color: var(--bg-primary);
+  background-color: transparent;
   color: var(--text-muted);
   border-bottom: 2px solid var(--bg-secondary);
   position: absolute;
@@ -186,6 +191,7 @@ a {
   opacity: 1;
   display: block;
   padding: 1.15rem 1rem;
+  background-color: var(--bg-primary);
 }
 
 .togglers button {
