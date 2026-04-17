@@ -66,3 +66,17 @@ scrollBtn.addEventListener("click", () => {
 })
 
 initFormValidation()
+
+/*
+Reveal Animations
+*/
+
+const observer =  new IntersectionObserver((entries)=> {
+    entries.forEach((entry)=> {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("reveal")
+        }
+    })
+});
+
+document.querySelectorAll(".revealHidden").forEach((el) => observer.observe(el))

@@ -61,7 +61,7 @@ function createProjectCard(projects) {
     const projectsContainer = createCompleteElement("div", ["projectsContainer"], "",);
     
     projects.forEach((project, idx) => {
-        const card = createCompleteElement("article", ["projectCard"], "", {id:idx+1});
+        const card = createCompleteElement("article", ["projectCard", "revealHidden"], "", {id:idx+1});
         card.style.setProperty("--card-gradient", project.gradient)
         const header = createCompleteElement("div", ["cardHeader"], "");
         header.style.background = project.gradient;
@@ -94,8 +94,8 @@ function createProjectCard(projects) {
 export function createProjectsSection() {
     const projectsSection = createCompleteElement("section", ["projectSection"], "", {id:"projectsSection"});
     const innerWrapper =  createCompleteElement("div", ["container"]);
-    const sectionTitle = createCompleteElement("h2", ["sectionTitle"], "Featured Projects");
-    const sectionDescription = createCompleteElement("p", ["sectionDescription"], "A collection of my recent work showcasing various technologies and problem-solving approaches.");
+    const sectionTitle = createCompleteElement("h2", ["sectionTitle", "revealHidden"], "Featured Projects");
+    const sectionDescription = createCompleteElement("p", ["sectionDescription", "revealHidden"], "A collection of my recent work showcasing various technologies and problem-solving approaches.");
     
     innerWrapper.append(sectionTitle, sectionDescription, createProjectCard(projects));
     projectsSection.append(innerWrapper)

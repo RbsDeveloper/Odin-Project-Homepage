@@ -25,7 +25,7 @@ function createContactLinks (items) {
 }
 
 function createInfoSide() {
-    const info = createCompleteElement("address", ["contactInfo"]);
+    const info = createCompleteElement("address", ["contactInfo", "revealHidden"]);
     const infoTitle = createCompleteElement("h3", [], "Let's talk about your project");
     const contactDescription = createCompleteElement("p", ["contactDescription"], "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!");
     const linksUl = createContactLinks(contactLinks);
@@ -62,7 +62,7 @@ const formFields = [
 ]
 
 function createFormSide () {
-    const formWrapper = createCompleteElement("div", ["formContainer"]);
+    const formWrapper = createCompleteElement("div", ["formContainer", "revealHidden"]);
     const formEl = createCompleteElement("form", [], "", {action: "https://formsubmit.co/developer.rbs@gmail.com",method: "POST"});
 
     formFields.forEach(field => {
@@ -102,11 +102,10 @@ function createFormSide () {
 export function createContactSection () {
     const section = createCompleteElement("section", ["contactSection"], "", {id: "contact"});
     const innerWrapper =  createCompleteElement("div", ["container"]);
-    const sectionHeader = createCompleteElement("header", ["sectionHeader"]);
+    const sectionHeader = createCompleteElement("header", ["sectionHeader","revealHidden"]);
     const sectionTitle = createCompleteElement("h2", ["title"], "Get In Touch");
     const sectionDescription = createCompleteElement("p", ["sectionDescription"], "Have a project in mind or just want to chat? Feel free to reach out!")
     sectionHeader.append(sectionTitle, sectionDescription);
-
 
     const contactWrapper = createCompleteElement("div", ["contactWrapper"]);
     contactWrapper.append(createInfoSide(), createFormSide());
