@@ -29,7 +29,7 @@ function createInfoSide() {
     const infoTitle = createCompleteElement("h3", [], "Let's talk about your project");
     const contactDescription = createCompleteElement("p", ["contactDescription"], "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!");
     const linksUl = createContactLinks(contactLinks);
-    const tipElement = createCompleteElement("aside", ["contactTip"]);
+    const tipElement = createCompleteElement("aside", ["tipBox", "contactTip"]);
     const tip = createCompleteElement("p", [], "💡Quick Tip: Include details about your project timeline, budget, and specific requirements to help me understand your needs better.")
     tipElement.append(tip);
     info.append(infoTitle, contactDescription, linksUl, tipElement);

@@ -1,3 +1,4 @@
+import { updateModalForCurrentUser } from "./thankYouModal.js";
 
 const validators = {
     name: {
@@ -27,7 +28,8 @@ function validateField(input){
         icon.classList.remove("fa-circle-check");      
         errorMsgEl.textContent = validators[input.id].errorMsg;
         errorMsgEl.classList.add("visible");
-        icon.classList.add("fa-circle-xmark");          
+        icon.classList.add("fa-circle-xmark");     
+        return false     
     }else if (isValid){
         input.classList.remove("error");
         input.classList.add("goodToGo");      
@@ -35,11 +37,13 @@ function validateField(input){
         errorMsgEl.textContent = "";
         errorMsgEl.classList.remove("visible");
         icon.classList.add("fa-circle-check");
-        console.log("all good")  
+        console.log("all good") 
+        return true 
     }else{
         input.classList.remove("error", "goodToGo");
         icon.className = "fa-solid";
         errorMsgEl.classList.remove("visible");
+        return false
     }  
 }
 
@@ -54,12 +58,18 @@ export function initFormValidation() {
     messageInput.addEventListener("input", (e) => validateField(e.target));
 
     formEl.addEventListener("submit", (e)=> {
+        e.preventDefault()
         const inputs = [nameInput, emailInput, messageInput];
-        const areAllValid = inputs.every(input => validateField(input))
-        
+        const results = inputs.map(input => validateField(input))
+        const areAllValid = results.every(result=> result===true);
+
         if(!areAllValid){
-            e.preventDefault()
+            return
         }
+
+        updateModalForCurrentUser(nameInput.value, emailInput.value);
+        const modal = document.querySelector("#submitModal");
+        modal.showModal()
     });
 
 

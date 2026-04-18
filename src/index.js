@@ -2,7 +2,8 @@ import { createHeader } from "./header.js";
 import { createMain } from "./main.js";
 import { createFooter } from "./footer.js";
 import { initFormValidation } from "./formValidation.js";
-document.body.append(createHeader(), createMain(), createFooter());
+import { createModal } from "./thankYouModal.js";
+document.body.append(createHeader(), createMain(), createFooter(), createModal());
 
 
 //toggle dark/light mode
