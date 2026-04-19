@@ -20,6 +20,7 @@ function validateField(input){
     const isValid = validators[input.id].validate(input.value);
     const icon = document.querySelector(`#${input.id}Icon`).querySelector("i");
     const errorMsgEl = document.querySelector(`#${input.id}Error`);
+
     if(!isValid && input.value.length > 0){  
         input.classList.remove("goodToGo");
         input.classList.add("error");      
@@ -44,32 +45,21 @@ function validateField(input){
     }  
 }
 
-export function initFormValidation() {
-    const nameInput = document.querySelector("#name");
-    const emailInput = document.querySelector("#email");
-    const messageInput = document.querySelector("#message");
-    const formEl = document.querySelector("form");
-
-    nameInput.addEventListener("input", (e) => validateField(e.target));
-    emailInput.addEventListener("input", (e) => validateField(e.target));
-    messageInput.addEventListener("input", (e) => validateField(e.target));
-
-    formEl.addEventListener("submit", (e)=> {
+function handleSubmit(e, inputsList, formElement) {
         e.preventDefault()
-        console.log(messageInput)
-        const inputs = [nameInput, emailInput, messageInput];
-        const results = inputs.map(input => validateField(input))
+        
+        const results = inputsList.map(input => validateField(input))
         const areAllValid = results.every(result=> result===true);
 
         if(!areAllValid){
             return
         }
 
-        const formData = new FormData(formEl);
+        const formData = new FormData(formElement);
 
         formData.append("_captcha", "false"); 
         
-        formData.append("message", messageInput.value);
+        //formData.append("message", messageInput.value);
 
         
         fetch("https://formsubmit.co/ajax/developer.rbs@gmail.com", {
@@ -79,19 +69,36 @@ export function initFormValidation() {
         .then(response => response.json())
         .then(data => {
             console.log("Success!", data);
-            updateModalForCurrentUser(nameInput.value, emailInput.value);
-            document.querySelector("#submitModal").showModal();
-            formEl.reset();
 
-            inputs.forEach((input) => {
+            const nameVal = inputsList.find(i => i.id === 'name').value;
+            const emailVal = inputsList.find(i => i.id === 'email').value;
+
+            updateModalForCurrentUser(nameVal, emailVal);
+            document.querySelector("#submitModal").showModal();
+            formElement.reset();
+
+            inputsList.forEach((input) => {
                 input.classList.remove("goodToGo");
                 input.parentElement.querySelector("i").classList.remove("fa-circle-check")
             });
 
         })
         .catch(error => console.error("Error:", error));
-        
-    });
+}
+
+export function initFormValidation() {
+
+    const nameInput = document.querySelector("#name");
+    const emailInput = document.querySelector("#email");
+    const messageInput = document.querySelector("#message");
+    const formEl = document.querySelector("form");
+    const inputs = [nameInput, emailInput, messageInput];
+
+    nameInput.addEventListener("input", (e) => validateField(e.target));
+    emailInput.addEventListener("input", (e) => validateField(e.target));
+    messageInput.addEventListener("input", (e) => validateField(e.target));
+
+    formEl.addEventListener("submit", (e) => handleSubmit(e, inputs, formEl));
 }
 
 
