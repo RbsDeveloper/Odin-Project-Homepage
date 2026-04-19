@@ -1,7 +1,7 @@
 import { createCompleteElement } from "./utils.js";
 
 const contactLinks = [
-    {label: "Email", icon: ["fa-solid", "fa-envelope"], href: "mailto:rbsDeveloper@gmail.com", content: "rbsDeveloper@gmail.com"},
+    {label: "Email", icon: ["fa-solid", "fa-envelope"], href: "mailto:developer.rbs@gmail.com", content: "developer.rbs@gmail.com"},
     {label: "Location", icon: ["fa-solid", "fa-location-dot"], content: "Bucharest, Romania"}
     
 ]
@@ -55,9 +55,9 @@ const formFields = [
     {
         label: "Message",
         tag: "textarea",
-        attrs: { id: "text", name: "text", rows: "6", placeholder: "Tell me about your project...", required: "true", autocomplete:"text" },
-        errorId: "textError",
-        iconId: "textIcon"
+        attrs: { id: "message", name: "message", rows: "6", placeholder: "Tell me about your project...", required: "true", autocomplete:"text" },
+        errorId: "messageError",
+        iconId: "messageIcon"
     },
 ]
 

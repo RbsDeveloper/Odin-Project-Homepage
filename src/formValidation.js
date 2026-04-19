@@ -9,7 +9,7 @@ const validators = {
         validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
         errorMsg: "Please enter a valid email",
     },
-    text: {
+    message: {
         validate: (value) => value.trim().length >= 10,
         errorMsg: "Message must be at least 10 characters",
     }
@@ -17,11 +17,9 @@ const validators = {
 
 
 function validateField(input){
-    console.log(input)
     const isValid = validators[input.id].validate(input.value);
     const icon = document.querySelector(`#${input.id}Icon`).querySelector("i");
     const errorMsgEl = document.querySelector(`#${input.id}Error`);
-    console.log(icon)
     if(!isValid && input.value.length > 0){  
         input.classList.remove("goodToGo");
         input.classList.add("error");      
@@ -37,7 +35,6 @@ function validateField(input){
         errorMsgEl.textContent = "";
         errorMsgEl.classList.remove("visible");
         icon.classList.add("fa-circle-check");
-        console.log("all good") 
         return true 
     }else{
         input.classList.remove("error", "goodToGo");
@@ -50,7 +47,7 @@ function validateField(input){
 export function initFormValidation() {
     const nameInput = document.querySelector("#name");
     const emailInput = document.querySelector("#email");
-    const messageInput = document.querySelector("#text");
+    const messageInput = document.querySelector("#message");
     const formEl = document.querySelector("form");
 
     nameInput.addEventListener("input", (e) => validateField(e.target));
@@ -59,6 +56,7 @@ export function initFormValidation() {
 
     formEl.addEventListener("submit", (e)=> {
         e.preventDefault()
+        console.log(messageInput)
         const inputs = [nameInput, emailInput, messageInput];
         const results = inputs.map(input => validateField(input))
         const areAllValid = results.every(result=> result===true);
@@ -67,9 +65,26 @@ export function initFormValidation() {
             return
         }
 
-        updateModalForCurrentUser(nameInput.value, emailInput.value);
-        const modal = document.querySelector("#submitModal");
-        modal.showModal()
+        const formData = new FormData(formEl);
+
+        formData.append("_captcha", "false"); 
+        
+        formData.append("message", messageInput.value);
+
+        
+        fetch("https://formsubmit.co/ajax/developer.rbs@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success!", data);
+            updateModalForCurrentUser(nameInput.value, emailInput.value);
+            document.querySelector("#submitModal").showModal();
+            formEl.reset();
+        })
+        .catch(error => console.error("Error:", error));
+        
     });
 
 
