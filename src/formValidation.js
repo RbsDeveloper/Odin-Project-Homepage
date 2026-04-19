@@ -82,12 +82,16 @@ export function initFormValidation() {
             updateModalForCurrentUser(nameInput.value, emailInput.value);
             document.querySelector("#submitModal").showModal();
             formEl.reset();
+
+            inputs.forEach((input) => {
+                input.classList.remove("goodToGo");
+                input.parentElement.querySelector("i").classList.remove("fa-circle-check")
+            });
+
         })
         .catch(error => console.error("Error:", error));
         
     });
-
-
 }
 
 
