@@ -5,7 +5,10 @@ export function createModal(usernName, userEmail) {
 
     //const overlay = createCompleteElement("div", ["modalOverlay"])
     const modal = createCompleteElement("dialog", ["thankYouModal"], "", {id:"submitModal"});
+    const modalInnerContent = createCompleteElement("div", ["modalInner"]);
 
+    const modalBg = createCompleteElement("div", ["modalBg"]);
+    const modalContent = createCompleteElement("div", ["modalContent"]);
 
     //Success icon
     const successIcon = createCompleteElement("div", ["successIcon"]);
@@ -15,12 +18,12 @@ export function createModal(usernName, userEmail) {
     //main msg
 
     const msgMainContainer = createCompleteElement("div", ["msgMainContainer"]);
-    const thanksHeading = createCompleteElement("h2", ["modalTitle"]);
+    const thanksHeading = createCompleteElement("h2", ["modalTitle", "gradientText"]);
     
     const sentMSg = createCompleteElement("p", [], "Your message has been successfully sent.");
-    const replyMsg =  createCompleteElement("p", [], "I'll get back to you at");
+    const replyMsg =  createCompleteElement("p", [], "I'll get back to you at ");
     const emailSpan = createCompleteElement("span", ["emailHighlight"],  "", {id:"emailSpan"});
-    replyMsg.append(emailSpan, "as soon as possible!")
+    replyMsg.append(emailSpan, " as soon as possible!")
 
     msgMainContainer.append(thanksHeading, sentMSg, replyMsg);
 
@@ -41,7 +44,7 @@ export function createModal(usernName, userEmail) {
     //second card
     const statusCard = createCompleteElement("div", ["infoCard", "statusCard"]);
     const statusIconWrapper = createCompleteElement("div", ["iconWrapper"]);
-    const statusIcon = createCompleteElement("i", ["fa-solid", "fa-circle-check"]);
+    const statusIcon = createCompleteElement("i", ["fa-regular", "fa-circle-check"]);
     statusIconWrapper.append(statusIcon);
     const statusTextWrapper = createCompleteElement("div", ["textWrapper"]);
     const statusLabel = createCompleteElement("p", ["CardLabel"], "Status");
@@ -54,7 +57,7 @@ export function createModal(usernName, userEmail) {
     const btnsWrappers = createCompleteElement("div", ["btnsWrapper"]);
 
     const backBtn = createCompleteElement("button", ["btn", "backBtn"]);
-    const backIcon = createCompleteElement("i", ["fa-solid", "fa-house"]);
+    const backIcon = createCompleteElement("i", ["fa-solid", "fa-arrow-left"]);
     const backText = createCompleteElement("span", [], "Back to Portfolio");
     backBtn.append(backIcon, backText);
     const topBtn = createCompleteElement("button", ["btn", "topBtn"]);
@@ -65,22 +68,26 @@ export function createModal(usernName, userEmail) {
     btnsWrappers.append(backBtn, topBtn);
 
     //tip box
-    const tipBox = createCompleteElement("div", ["tipBox"]);
+    const tipBox = createCompleteElement("div", ["tipBox", "contactTip"]);
     const tipText = createCompleteElement("p", [], "💡 In the meantime, feel free to explore more of my projects or connect with me on social media!");
     tipBox.append(tipText);
 
-    modal.append(successIcon, msgMainContainer, infoCards, btnsWrappers, tipBox);
-    //overlay.append(modal);
+    modalContent.append(successIcon, msgMainContainer, infoCards, btnsWrappers, tipBox);
+    modalInnerContent.append(modalBg, modalContent);
+    modal.append(modalInnerContent)
 
     //btn events
 
     backBtn.addEventListener("click", () => {
-        //overlay.classlist.remove("visible");
+        const target = document.querySelector("#projectsSection")
         modal.close();
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        })
     })
 
     topBtn.addEventListener("click", () => {
-        //overlay.classlist.remove("visible");
         window.scrollTo({top: 0, behavior:"smooth"})
         modal.close();
     })

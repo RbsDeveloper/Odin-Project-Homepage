@@ -81,3 +81,4 @@ const observer =  new IntersectionObserver((entries)=> {
 });
 
 document.querySelectorAll(".revealHidden").forEach((el) => observer.observe(el))
+
