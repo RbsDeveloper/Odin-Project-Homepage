@@ -302,11 +302,11 @@ a {
     align-items: center;
     justify-content: center;
     width: 2.5rem;
-    height: 2.5rem;     /* fixed container size */
+    height: 2.5rem;   
 }
 
 .socialLink i {
-    font-size: 1.25rem; /* all icons same size */
+    font-size: 1.25rem; 
     line-height: 1;
 }
 
@@ -386,6 +386,7 @@ a {
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.4;
+  color: var(--text-primary)
 }
 
 .cardDescription {
@@ -644,11 +645,11 @@ a {
 }
 
 .iconWrapper .fa-circle-check {
-    color: #22c55e;  /* green */
+    color: #22c55e; 
 }
 
 .iconWrapper .fa-circle-xmark {
-    color: #ef4444;  /* red */
+    color: #ef4444; 
 }
 
 .formContainer button {
@@ -932,7 +933,7 @@ footer {
   }
 
   .tagline, .personalDescription, .socialList {
-        margin-block: 2rem;  /* more breathing room */
+        margin-block: 2rem; 
     }
 
   .contactWrapper {
